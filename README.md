@@ -35,7 +35,7 @@ Neural Network: A neural network would be a good choice for modeling the relatio
 
 SVM: SVM can also handle nonlinear relationships between ratings and the product information. By categorizing ratings into discrete classes (e.g., 1, 2, 3, 4, 5), we can expect that SVM can effectively classify ratings based on the given features of the product.
 
-## Conclusion and Improvement
+### Conclusion and Improvement
 
 The optimal complexity (degree) of the polynomial regression model was determined to be degree 3. While the model's performance(MSE) was good, it may have been influenced by the clustering of ratings around 3 and 4. To address this issue and potentially improve the polynomial model, we can consider the following:
 
