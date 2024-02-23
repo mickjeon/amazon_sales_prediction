@@ -22,10 +22,10 @@ Last but not least, we normalized the data using min-max normalization and stand
 
 Based on the observation that the correlation matrix did not reveal significant linear relationships, we chose polynomial regression. 
 To enhance the flexibility of our model, we converted the sub_category into integer values representing categories. We merged the rating datasets for Amazon Fashion, Televisions, and Luxury Beauty into one dataset, mapping the categories as follows:
-
 Amazon Fashion: 0
 Televisions: 1
 Luxury Beauty: 2
+
 The polynomial regression model yielded the lowest testing Mean Squared Error (MSE) at degree 3. 
 At degree 3, the testing MSE was 0.019547535944113525, and the training MSE was 0.0117217271095025.
 
@@ -34,4 +34,12 @@ Even though polynomial regression yielded satisfactory results, it is likely due
 Neural Network: A neural network would be a good choice for modeling the relationship between rating and the features such as no_of_ratings, discount_price_usd, actual_price_usd, discount_rate, and agg_rating, as there may be complex nonlinear relationships. This is because neural networks is good at capturing complex nonlinear patterns, and they offer the flexibility to fine-tune hyperparameters, including various loss functions and activation functions, to adapt to the characteristics of the dataset.
 
 SVM: SVM can also handle nonlinear relationships between ratings and the product information. By categorizing ratings into discrete classes (e.g., 1, 2, 3, 4, 5), we can expect that SVM can effectively classify ratings based on the given features of the product.
+
+## Conclusion and Improvement
+
+The optimal complexity (degree) of the polynomial regression model was determined to be degree 3. While the model's performance(MSE) was good, it may have been influenced by the clustering of ratings around 3 and 4. To address this issue and potentially improve the polynomial model, we can consider the following:
+
+Oversampling the classes with fewer ratings: replicating samples from classes with fewer ratings can help balance the dataset.
+
+Cross-validation (e.g., k-fold): Validate the performance of the polynomial model using techniques like k-fold cross-validation to ensure that degree 3 is indeed the optimal choice. This can provide additional confidence in the chosen complexity of the model and help assess its generalization ability.
 
