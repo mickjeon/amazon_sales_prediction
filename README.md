@@ -16,3 +16,22 @@ We simultaeneously converted all ratings, no_of_ratings, actual_price, and disco
 We then created to new columns. We calculated the discount_rate of each instance using actual_price and discount_price. We also calculated the aggregate rating, agg_rating, by multiplying ratings and no_of_ratings columns. 
 
 Last but not least, we normalized the data using min-max normalization and standardized the data by using z-scoring.
+
+
+## First Model: Polynomial Regression
+
+Based on the observation that the correlation matrix did not reveal significant linear relationships, we chose polynomial regression. 
+To enhance the flexibility of our model, we converted the sub_category into integer values representing categories. We merged the rating datasets for Amazon Fashion, Televisions, and Luxury Beauty into one dataset, mapping the categories as follows:
+
+Amazon Fashion: 0
+Televisions: 1
+Luxury Beauty: 2
+The polynomial regression model yielded the lowest testing Mean Squared Error (MSE) at degree 3. 
+At degree 3, the testing MSE was 0.019547535944113525, and the training MSE was 0.0117217271095025.
+
+Even though polynomial regression yielded satisfactory results, it is likely due to the clustering of ratings between 3 and 4. the next two models we are considering are:
+
+Neural Network: A neural network would be a good choice for modeling the relationship between rating and the features such as no_of_ratings, discount_price_usd, actual_price_usd, discount_rate, and agg_rating, as there may be complex nonlinear relationships. This is because neural networks is good at capturing complex nonlinear patterns, and they offer the flexibility to fine-tune hyperparameters, including various loss functions and activation functions, to adapt to the characteristics of the dataset.
+
+SVM: SVM can also handle nonlinear relationships between ratings and the product information. By categorizing ratings into discrete classes (e.g., 1, 2, 3, 4, 5), we can expect that SVM can effectively classify ratings based on the given features of the product.
+
