@@ -43,3 +43,35 @@ Oversampling the classes with fewer ratings: replicating samples from classes wi
 
 Cross-validation (e.g., k-fold): Validate the performance of the polynomial model using techniques like k-fold cross-validation to ensure that degree 3 is indeed the optimal choice. This can provide additional confidence in the chosen complexity of the model and help assess its generalization ability.
 
+## Second Model: Neural Network
+
+To predict product ratings, we utilized a neural network as the second model. However, there wasn't any significant improvement compared to the first model.
+
+Given that most ratings fall within the 3-4 range, the key to building a good model is in filtering out ratings of 1 and 5. Although our first model, polynomial regression, performed reasonably well within the 3-4 rating range, it was significantly bad in predicting ratings of 1 and 5. Similarly, our second model, the neural network, also struggled with predicting ratings of 1 and 5.
+
+We suspected that normalizing the ratings between 0 and 1 might be the cause. Our loss function, MSE, reacts less sensitively to small errors when values are between 0 and 1 compared to the original 1-5 scale.
+
+Therefore, we rebuilt the neural network model using the original rating scale of 1-5. To compare performance, we re-evaluated our first model, polynomial regression, using the original rating scale. When using the original 1-5 rating scale with the neural network model, we observed a significant improvement in predicting ratings of 1 and 5.
+
+### K-Fold Cross Validation
+The MSE for the polynomial model using the 1-5 scale was TODO, and for the neural network model with the 1-5 scale, it was TODO.
+
+To validate the models' performance, we conducted k-fold cross-validation and achieved TODO as the average MSE.
+
+### Hyperparameter Tuning
+Furthermore, to optimize the neural network model's performance, we performed hyperparameter tuning, exploring variations such as:
+
+Activation function: ["relu", "tanh", "linear"]
+Loss function: ["mse", "mae"]
+Number of layers: 2-10
+Number of nodes in each layer: 16-64
+
+Among these, we obtained a validation mean square error of 0.03225 with the following model configuration:
+
+Loss function: mse
+Activation function: used
+Number of nodes in each layer: 32
+Number of layers: TODO
+This allowed us to achieve the TODO MSE, which showed significantly better performance than our first model.
+
+### Conclusion for Model 2
