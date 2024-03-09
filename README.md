@@ -50,12 +50,10 @@ To predict product ratings, we utilized a neural network as the second model. Ho
 Given that most ratings fall within the 3-4 range, the key to building a good model is in filtering out ratings of 1 and 5. Although our first model, polynomial regression, performed reasonably well within the 3-4 rating range, it was significantly bad in predicting ratings of 1 and 5. Similarly, our second model, the neural network, also struggled with predicting ratings of 1 and 5.
 
 We suspected that normalizing the ratings between 0 and 1 might be the cause. Our loss function, MSE, reacts less sensitively to small errors when values are between 0 and 1 compared to the original 1-5 scale.
-
 Therefore, we rebuilt the neural network model using the original rating scale of 1-5. To compare performance, we re-evaluated our first model, polynomial regression, using the original rating scale. When using the original 1-5 rating scale with the neural network model, we observed a significant improvement in predicting ratings of 1 and 5.
 
 ### K-Fold Cross Validation
 The MSE for the polynomial model using the 1-5 scale was TODO, and for the neural network model with the 1-5 scale, it was TODO.
-
 To validate the models' performance, we conducted k-fold cross-validation and achieved TODO as the average MSE.
 
 ### Hyperparameter Tuning
