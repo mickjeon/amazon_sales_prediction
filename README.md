@@ -59,17 +59,16 @@ To validate the models' performance, we conducted k-fold cross-validation and ac
 ### Hyperparameter Tuning
 Furthermore, to optimize the neural network model's performance, we performed hyperparameter tuning, exploring variations such as:
 
-Activation function: ["relu", "tanh", "linear"]
-Loss function: ["mse", "mae"]
-Number of layers: 2-10
-Number of nodes in each layer: 16-64
+- Activation function: ["relu", "tanh", "linear"]
+- Loss function: ["mse", "mae"]
+- Number of layers: 2-10
+- Number of nodes in each layer: 16-64
 
-Among these, we obtained a validation mean square error of 0.03225 with the following model configuration:
+Among these configurations, we achieved a validation mean square error of 0.03225 with the following model setup:
 
-Loss function: mse
-Activation function: used
-Number of nodes in each layer: 32
-Number of layers: TODO
-This allowed us to achieve the TODO MSE, which showed significantly better performance than our first model.
+- Loss function: mse
+- Activation function: used
+- Number of nodes in each layer: 32
+- Number of layers: TODO
 
-### Conclusion for Model 2
+### Conclusion and Improvement
