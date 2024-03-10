@@ -45,16 +45,20 @@ Cross-validation (e.g., k-fold): Validate the performance of the polynomial mode
 
 ## Second Model: Neural Network
 
-To predict product ratings, we utilized a neural network as the second model. However, there wasn't any significant improvement compared to the first model.
+To predict product ratings, we developed an Aritficial Neural Network as the second model. However, there wasn't any significant improvement compared to the first model.
 
-Given that most ratings fall within the 3-4 range, the key to building a good model is in filtering out ratings of 1 and 5. Although our first model, polynomial regression, performed reasonably well within the 3-4 rating range, it was significantly bad in predicting ratings of 1 and 5. Similarly, our second model, the neural network, also struggled with predicting ratings of 1 and 5.
+Given that most ratings fall within the 3-4 range, the key to building a good model is in filtering out ratings of 1 and 5. Although our first model, polynomial regression model, performed reasonably well within the 3-4 rating range, it was significantly bad in predicting ratings of 1 and 5. Similarly, our second model, the neural network, also struggled with predicting ratings of 1 and 5.
 
 We suspected that normalizing the ratings between 0 and 1 might be the cause. Our loss function, MSE, reacts less sensitively to large errors when values are between 0 and 1 compared to the original 1-5 scale.
-Therefore, we rebuilt the neural network model using the original rating scale of 1-5. To compare performance, we re-evaluated our first model, polynomial regression, using the original rating scale. When using the original 1-5 rating scale with the neural network model, we observed a significant improvement in predicting ratings of 1 and 5.
+
+Therefore, we rebuilt the neural network model using the original rating scale of 1-5. To compare performance, we re-evaluated our first model, polynomial regression model, using the original rating scale. When using the original 1-5 rating scale with the neural network model, we observed a significant improvement in predicting ratings of 1 and 5.
+
+After trying out a couple different model, we decided that our baseline ANN is a network that uses 4 hidden layers with 32 nodes in each of the layers. We chose relu as the activation function except for the last layer, which had linear activation.
+
 
 ### K-Fold Cross Validation
-The MSE for the polynomial model using the 1-5 scale was TODO, and for the neural network model with the 1-5 scale, it was TODO.
-To validate the models' performance, we conducted k-fold cross-validation and achieved TODO as the average MSE.
+The test MSE for the polynomial model using the 1-5 scale was 0.192, and for the neural network model with the 1-5 scale, it was 0.137.
+To validate the model's performance, we conducted k-fold cross-validation and achieved 0.216 as the average validation MSE. We believed that we could do better with an ANN and therefore, performed hyper-parameter tuning.
 
 ### Hyperparameter Tuning
 Furthermore, to optimize the neural network model's performance, we performed hyperparameter tuning, exploring variations such as:
