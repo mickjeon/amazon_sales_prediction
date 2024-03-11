@@ -110,13 +110,20 @@ The test MSE for the baseline model is 0.173.
 The train MSE for the basline model is 0.16.
 
 ### Hyperparameter Tuning:
-To achieve better performance, we conducted hyperparameter tuning using the following parameter options:
-- Criterion options: ["squared_error", "friedman_mse", "absolute_error", "poisson"]
-- Max depth range: range(1, 41)
+We performed hyper-parameter tuning in order to find the best number of depths in a decision tree and criterion. 
+
+- Number of depths: range of 1 to 40
+- Criterion: ["squared_error", "friedman_mse", "absolute_error", "poisson”]
+
+Analyzing the outputs, we found that a Decision Tree Regressor reaches its minimum test mean squared error loss in the depths from 6 to 9, depending on the criterion. The model tend to overfit on the training data when the maximum number of depths increased beyond the 6 to 9 region. 
 
 #### Best Performing Model:
 After hyperparameter tuning, the best performing model had the following configuration:
-- Criterion option: squared_error
-- Max depth: 8
 
-Next, to examine where our model fits on the fitting graph, we plotted the train_loss and test_loss against the depth of the Decision Tree Regressor. We observed that the train_loss and test_loss decreased until a depth of 7-8, after which the train_loss continued to decrease while the test_loss increased, indicating overfitting.
+- Number of depths: 7
+- Criterion: “squared_error”
+
+Using the best Decision Tree Regressor, we were able to achieve test MSE of 0.123 and train MSE of 0.115.
+
+
+Next, to examine where our model fits on the fitting graph, we plotted the train_loss and test_loss against the depth of the Decision Tree Regressor (can be found in the colab link listed above). We observed that the train_loss and test_loss decreased until a depth of 7, reaching its minimum at depth=7. When the depths increased further, train_loss continued to decrease while the test_loss increased, indicating overfitting. Interestingly, the train loss seemed to converge to 0 as the depth became significantly larger after depth>=38.
