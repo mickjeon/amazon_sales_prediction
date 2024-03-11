@@ -93,3 +93,30 @@ We believe that there are other ways to improve upon our Artificial Neural Netwo
 
 ### Next Model
 We plan to build a decision tree regressor as our third model. We have decided not to scale our data for model training in this milestone. We believe that Decision Tree Regressor is beneficial as it does not require feature rescaling to train. Furthermore, we hope that decision tree model will be able to handle the different price range of products well. For example, within the TV category, there are big ranges of TV prices. We believe that the decision tree regressor will be able to separate the different price ranges and predict a price range specific ratings prediction. The same logic applies to the number_of_ratings feature as well.
+
+## Thrid Model: Decision Tree Regressor
+
+For our third model, we utilized the Decision Tree Regressor.
+
+
+### The baseline decision tree regressor model
+The hyperparameter tuning results showed that it performed better than the first model, polynomial regression, but not as well as the ANN.
+
+We set the baseline with the following parameters:
+- Max depth: 2
+- Criterion: squared error
+
+The test MSE for the baseline model is 0.173.
+The train MSE for the basline model is 0.16.
+
+### Hyperparameter Tuning:
+To achieve better performance, we conducted hyperparameter tuning using the following parameter options:
+- Criterion options: ["squared_error", "friedman_mse", "absolute_error", "poisson"]
+- Max depth range: range(1, 41)
+
+#### Best Performing Model:
+After hyperparameter tuning, the best performing model had the following configuration:
+- Criterion option: squared_error
+- Max depth: 8
+
+Next, to examine where our model fits on the fitting graph, we plotted the train_loss and test_loss against the depth of the Decision Tree Regressor. We observed that the train_loss and test_loss decreased until a depth of 7-8, after which the train_loss continued to decrease while the test_loss increased, indicating overfitting.
