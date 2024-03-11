@@ -70,16 +70,15 @@ Furthermore, to optimize the neural network model's performance, we performed hy
 - Loss function: ["mse", "mae"]
 - Number of nodes in each layer: 16-64, step_size=8
 
-The best model after hyperparameter tuning achieved validation mean square error of 0.03225 and test accuracy of TODO with the following model setup:
+The best model after hyperparameter tuning achieved validation mean square error of 0.02904 and test MSE of 0.0514 with the following model setup:
 
 - Loss function: mse
-- Activation function: used
-- Number of nodes in each layer: 32
-- Number of layers: TODO
+- Activation function: tanh
+- Number of nodes in each layer: 48
 
 
 ### Conclusion and Improvement
-Overall, we were able to achieve a much lower mean squared error by building an artificial neural network regressor to predict ratings, compared to our polynomial regression model. The baseline ANN achieved Test MSE of 0.137, while our first model had Test MSE of 0.316. When comparing the predicted values with the true values, we noticed the ANN had significant improvements at predicting ratings of 1s and 5s. To validate it's capabilities further, we performed repeated Kfold cross validation. We then performed hyperparameter tuning on the activation function, number of nodes in the hidden layer, and loss functions. We were able to achieve a better test loss of TODO.
+Overall, we were able to achieve a much lower mean squared error by building an artificial neural network regressor to predict ratings, compared to our polynomial regression model. The baseline ANN achieved Test MSE of 0.137, while our first model had Test MSE of 0.316. When comparing the predicted values with the true values, we noticed the ANN had significant improvements at predicting ratings of 1s and 5s. To validate it's capabilities further, we performed repeated Kfold cross validation. We then performed hyperparameter tuning on the activation function, number of nodes in the hidden layer, and loss functions. We were able to achieve a better test loss of 0.0514.
 
 We believe that there are other ways to improve upon our Artificial Neural Network. We suppose one way is to experiment with different optimizers for gradient descent. Another way is to experiment with the batch size for further hyperparameter tuning.
 
