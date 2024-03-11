@@ -53,8 +53,12 @@ While we found mean squared error as the appropriate loss function for the regre
 
 Therefore, we decided to train our ANN using the original rating scale of 1-5 before normalization. To compare performance, we re-evaluated our first model, polynomial regression model, using the original rating scale. When using the original 1-5 rating scale with the neural network model, we observed a significant improvement in predicting ratings of 1 and 5.
 
+[link for polynomial regression](https://github.com/mickjeon/amazon_sales_prediction/blob/main/polynomial_regression_without_normalization.ipynb)
+
 ### The baseline ANN Model
 After trying out a couple different configuration, we decided that our baseline ANN is a network that uses 4 hidden layers with 32 nodes in each of the layers. We chose relu as the activation function except for the last layer, which had linear activation. <b>This model achieved test MSE of 0.137 and training MSE of 0.097</b>.
+
+[link for baseline ann (github)](https://github.com/mickjeon/amazon_sales_prediction/blob/main/baseline_ann.ipynb)
 
 ### Model's place in a fitting graph
 This particular model shows mild signs of overfitting. When comparing the train loss and validation loss, the difference is small except for a few epochs in training. They also reveal a downward trend as epochs increase. When comparing the train mean absolute error and validation mean absolute error, validation error is consistently a little bit higher than the train error. Mean absolute error still reveals a downward trend. Therefore, we believe that our baseline ANN reveals mild signs of overfitting.
@@ -62,6 +66,8 @@ This particular model shows mild signs of overfitting. When comparing the train 
 ### K-Fold Cross Validation
 The test MSE for the polynomial model using the 1-5 scale was 0.317, and for the neural network model with the 1-5 scale, it was 0.137.
 To validate the model's performance, we conducted repeated k-fold cross-validation and achieved 0.216 as the average validation MSE. We believed that we could do better with an ANN and therefore, performed hyper-parameter tuning.
+
+[link for K-Fold Cross Validation (github)](https://github.com/mickjeon/amazon_sales_prediction/blob/main/kfold_validation_ann.ipynb)
 
 ### Hyperparameter Tuning
 Furthermore, to optimize the neural network model's performance, we performed hyperparameter tuning, exploring variations such as:
@@ -76,7 +82,9 @@ The best model after hyperparameter tuning achieved validation mean square error
 - Activation function: tanh
 - Number of nodes in each layer: 48
 
-[here is the link for hyperparameter tuning](https://colab.research.google.com/drive/1wZBpWmbYOrHEUO6C4caRZ6H01VW77BOi?usp=sharing)
+[link for hyperparameter tuning (colab)](https://colab.research.google.com/drive/1wZBpWmbYOrHEUO6C4caRZ6H01VW77BOi?usp=sharing)
+
+[link for hyperparameter tuning (github)](https://github.com/mickjeon/amazon_sales_prediction/blob/main/ANN_hyper_tuning.ipynb)
 
 ### Conclusion and Improvement
 Overall, we were able to achieve a much lower mean squared error by building an artificial neural network regressor to predict ratings, compared to our polynomial regression model. The baseline ANN achieved Test MSE of 0.137, while our first model had Test MSE of 0.316. When comparing the predicted values with the true values, we noticed the ANN had significant improvements at predicting ratings of 1s and 5s. To validate it's capabilities further, we performed repeated Kfold cross validation. We then performed hyperparameter tuning on the activation function, number of nodes in the hidden layer, and loss functions. We were able to achieve a better test loss of 0.0514.
