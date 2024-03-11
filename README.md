@@ -76,6 +76,7 @@ The best model after hyperparameter tuning achieved validation mean square error
 - Activation function: tanh
 - Number of nodes in each layer: 48
 
+[here is the link for hyperparameter tuning](https://colab.research.google.com/drive/1wZBpWmbYOrHEUO6C4caRZ6H01VW77BOi?usp=sharing)
 
 ### Conclusion and Improvement
 Overall, we were able to achieve a much lower mean squared error by building an artificial neural network regressor to predict ratings, compared to our polynomial regression model. The baseline ANN achieved Test MSE of 0.137, while our first model had Test MSE of 0.316. When comparing the predicted values with the true values, we noticed the ANN had significant improvements at predicting ratings of 1s and 5s. To validate it's capabilities further, we performed repeated Kfold cross validation. We then performed hyperparameter tuning on the activation function, number of nodes in the hidden layer, and loss functions. We were able to achieve a better test loss of 0.0514.
