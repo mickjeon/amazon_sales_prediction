@@ -7,12 +7,8 @@ Our primary goal is to develop a machine learning model that helps sellers on Am
 
 By building a “good” predictive model, sellers on Amazon can maximize their profit and product rating by discounting their products at the right amount. This also benefits the buyers as they can purchase items at more competitive prices.
 ## Methods
-- Exploration results
-- Preprocessing steps
-- Models chosen in the order they were executed
-- Parameters chosen
-- Subsection for each step
-###Data Exploration
+
+### Data Exploration
 
 Upon downloading the Amazon Product Dataset, which is divided into 142 subcategories, we explored a select number of them as a Pandas Dataframe. We reviewed their columns and variable types. We checked how many instances we had for each subcategory. We plotted histograms for columns ratings, number_of_ratings, discount_price, and actual_price. Last but not least, we looked into correlations between the features and plotted pairplots to see their distributions. 
 
@@ -57,6 +53,7 @@ The third model is a Decision Tree Regressor. We built a baseline model using th
 ## Results
 
 ### Data Exploration
+Here are some figures from our data exploration.
 ![figure1](./imgs/fashion_heatmap.png)
 ![figure2](./imgs/fashion_pairplot.png)
 ![figure3](./imgs/histo1.png)
@@ -155,5 +152,4 @@ Furthermore, we believe that we can map ranges of ratings into classes (ex: 5.0-
 - Jae Min Jeon: Machine Learning Engineer, data exploration, preprocessing, polynomial_regression, ann, decision_tree_regressor, write-up
 - Juhak Lee: Machine Learning Engineer, data exploration, preprocessing, polynomial_regression, ann, decision_tree_regressor, write-up
 
-``
 **We pair-programmed throughout the project
