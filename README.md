@@ -5,7 +5,7 @@ Selling products on Amazon is challenging. For any given product, you have a lot
 
 Our primary goal is to develop a machine learning model that helps sellers on Amazon find the optimal discount prices/rates for their products. We defined “optimal” in our project as the price that will result in the highest rating, as people tend to sway significantly based on ratings of a product. Keeping this in mind, we developed three different models that predict the rating of a product based on its original price, discounted price, and number of ratings.
 
-By building a “good” predictive model, sellers on Amazon can maximize their profit and product rating by discounting their products at the right amount. This also benefits the buyers as they can purchase items at more competitive prices.
+By building a “good” predictive model, sellers on Amazon can maximize their profit and product rating by discounting their products at the right amount. This also benefits the buyers as they can purchase items at more competitive prices. Adding a change here
 ## Methods
 
 ### Data Exploration
